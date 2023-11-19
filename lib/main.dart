@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:miguel_marin_training/domain/func/init_functionality.dart';
 import 'package:miguel_marin_training/ui/LoginScreen/login_screen.dart';
 
 void main() {
+  InitConfigurations().setInitConfig();
   runApp(const MainApp());
 }
 
