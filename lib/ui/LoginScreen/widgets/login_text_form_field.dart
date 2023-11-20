@@ -19,6 +19,7 @@ class LoginTextFormField extends StatelessWidget {
           color: Color.fromARGB(227, 225, 226, 255),
         ),
         decoration: InputDecoration(
+          contentPadding: const EdgeInsets.all(0),
           border: const UnderlineInputBorder(),
           enabledBorder: const UnderlineInputBorder(
             borderSide: BorderSide(
@@ -36,6 +37,7 @@ class LoginTextFormField extends StatelessWidget {
           ),
           floatingLabelBehavior: FloatingLabelBehavior.auto,
           prefixIcon: Icon(
+            size: 15,
             icon,
             color: const Color.fromARGB(227, 225, 226, 255),
           ),
