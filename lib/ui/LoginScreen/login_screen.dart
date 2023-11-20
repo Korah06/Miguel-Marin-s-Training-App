@@ -26,7 +26,7 @@ class LoginScreen extends StatelessWidget {
                 child: Image.asset('assets/logo.png'),
               ),
               Transform.translate(
-                offset: const Offset(0, -50),
+                offset: const Offset(0, -80),
                 child: Container(
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(120, 150, 87, 82),
