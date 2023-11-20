@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miguel_marin_training/ui/theme/colors.dart';
 
 class LoginTextFormField extends StatelessWidget {
   final String label;
@@ -15,31 +16,32 @@ class LoginTextFormField extends StatelessWidget {
       padding: const EdgeInsets.all(14),
       child: TextFormField(
         maxLines: 1,
-        style: const TextStyle(
-          color: Color.fromARGB(227, 225, 226, 255),
+        style: TextStyle(
+          color: ColorsScheme().pink,
         ),
+        cursorColor: ColorsScheme().pink,
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.all(0),
           border: const UnderlineInputBorder(),
-          enabledBorder: const UnderlineInputBorder(
+          enabledBorder: UnderlineInputBorder(
             borderSide: BorderSide(
-              color: Color.fromARGB(227, 225, 226, 255),
+              color: ColorsScheme().pink,
             ),
           ),
-          focusedBorder: const UnderlineInputBorder(
+          focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(
-              color: Color.fromARGB(227, 225, 226, 255),
+              color: ColorsScheme().pink,
             ),
           ),
           labelText: label,
-          labelStyle: const TextStyle(
-            color: Color.fromARGB(227, 225, 226, 255),
+          labelStyle: TextStyle(
+            color: ColorsScheme().pink,
           ),
           floatingLabelBehavior: FloatingLabelBehavior.auto,
           prefixIcon: Icon(
             size: 15,
             icon,
-            color: const Color.fromARGB(227, 225, 226, 255),
+            color: ColorsScheme().pink,
           ),
         ),
       ),

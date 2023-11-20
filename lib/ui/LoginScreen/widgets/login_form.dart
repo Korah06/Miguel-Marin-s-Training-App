@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:miguel_marin_training/ui/LoginScreen/widgets/login_text_form_field.dart';
+import 'package:miguel_marin_training/ui/theme/colors.dart';
+
+import 'login_button.dart';
+import 'login_checkbox.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -38,10 +42,10 @@ class LoginForm extends StatelessWidget {
                     offset: const Offset(0, 3),
                   ),
                 ],
-                color: const Color.fromARGB(120, 150, 87, 82),
+                color: ColorsScheme().darkRed,
                 borderRadius: BorderRadius.circular(10),
               ),
-              height: 370,
+              height: 320,
               width: 320,
               child: const Column(
                 children: [
@@ -49,7 +53,11 @@ class LoginForm extends StatelessWidget {
                     label: 'User',
                     icon: Icons.person,
                   ),
-                  LoginTextFormField(label: 'Password', icon: Icons.lock)
+                  LoginTextFormField(label: 'Password', icon: Icons.lock),
+                  LoginCheckbox(
+                    label: 'Recordar Contraseña',
+                  ),
+                  LoginButton(label: 'iniciar sesion'),
                 ],
               ),
             ),
