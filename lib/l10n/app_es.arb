@@ -1,0 +1,7 @@
+{
+  "loginButton": "Iniciar Sesión",
+  "registerButton": "Registrarse",
+  "userLabel": "Usuario",
+  "passwordLabel": "Contraseña",
+  "remindPasswordLabel": "Has olvidado tu Contraseña?"
+}

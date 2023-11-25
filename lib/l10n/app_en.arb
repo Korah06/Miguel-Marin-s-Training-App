@@ -1,6 +1,7 @@
 {
-  "helloWorld": "Hello World!",
-  "@helloWorld": {
-    "description": "The conventional newborn programmer greeting"
-  }
+  "loginButton": "Sign In",
+  "registerButton": "Sign Up",
+  "userLabel": "User",
+  "passwordLabel": "Password",
+  "remindPasswordLabel": "Forgot Password?"
 }

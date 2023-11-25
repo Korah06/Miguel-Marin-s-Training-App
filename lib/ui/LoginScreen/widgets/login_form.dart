@@ -53,14 +53,15 @@ class LoginForm extends StatelessWidget {
               child: Column(
                 children: [
                   LoginTextFormField(
-                    label: 'User',
+                    label: translator!.userLabel,
                     icon: Icons.person,
                   ),
-                  LoginTextFormField(label: 'Password', icon: Icons.lock),
+                  LoginTextFormField(
+                      label: translator.passwordLabel, icon: Icons.lock),
                   LoginCheckbox(
-                    label: 'Recordar Contraseña',
+                    label: translator.remindPasswordLabel,
                   ),
-                  LoginButton(label: 'iniciar sesion'),
+                  LoginButton(label: translator.loginButton),
                 ],
               ),
             ),
