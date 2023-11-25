@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miguel_marin_training/ui/HomeScreen/home_screen.dart';
 import 'package:miguel_marin_training/ui/theme/colors.dart';
 
 class LoginButton extends StatelessWidget {
@@ -21,7 +22,10 @@ class LoginButton extends StatelessWidget {
           ),
           minimumSize: const Size(220, 50),
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const HomeScreen()));
+        },
         child: Text(
           label,
           style: TextStyle(color: ColorsScheme().gray),
