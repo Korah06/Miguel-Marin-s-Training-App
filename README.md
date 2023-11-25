@@ -1,3 +1,3 @@
 # miguel_marin_training
 
-A new Flutter project.
+A project for Miguel Marin gym
