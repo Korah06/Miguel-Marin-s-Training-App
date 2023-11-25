@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:miguel_marin_training/ui/LoginScreen/widgets/login_text_form_field.dart';
 import 'package:miguel_marin_training/ui/theme/colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'login_button.dart';
 import 'login_checkbox.dart';
@@ -12,6 +13,8 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final translator = AppLocalizations.of(context);
+
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -47,7 +50,7 @@ class LoginForm extends StatelessWidget {
               ),
               height: 320,
               width: 320,
-              child: const Column(
+              child: Column(
                 children: [
                   LoginTextFormField(
                     label: 'User',
