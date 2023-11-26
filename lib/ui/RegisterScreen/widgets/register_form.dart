@@ -1,21 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:miguel_marin_training/ui/LoginScreen/widgets/login_text_form_field.dart';
 import 'package:miguel_marin_training/ui/theme/colors.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import 'login_button.dart';
-import 'login_checkbox.dart';
-import 'register_label.dart';
-import 'remind_password_label.dart';
-
-class LoginForm extends StatelessWidget {
-  const LoginForm({
+class RegisterForm extends StatelessWidget {
+  const RegisterForm({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    final translator = AppLocalizations.of(context);
+    // final translator = AppLocalizations.of(context);
 
     return Container(
       decoration: const BoxDecoration(
@@ -54,20 +47,8 @@ class LoginForm extends StatelessWidget {
               width: 340,
               child: Column(
                 children: [
-                  LoginTextFormField(
-                    label: translator!.userLabel,
-                    icon: Icons.person,
-                  ),
-                  LoginTextFormField(
-                      label: translator.passwordLabel, icon: Icons.lock),
-                  LoginCheckbox(
-                    label: translator.remindPasswordLabel,
-                  ),
-                  LoginButton(label: translator.loginButton),
-                  RemindPasswordLabel(
-                    label: translator.forgottenPassword,
-                  ),
-                  RegisterLabel(label: translator.registerLabel),
+                  ElevatedButton(
+                      onPressed: () {}, child: const Text("Register"))
                 ],
               ),
             ),
