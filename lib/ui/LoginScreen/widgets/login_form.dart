@@ -5,6 +5,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'login_button.dart';
 import 'login_checkbox.dart';
+import 'register_label.dart';
+import 'remind_password_label.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -48,8 +50,8 @@ class LoginForm extends StatelessWidget {
                 color: ColorsScheme().darkRed,
                 borderRadius: BorderRadius.circular(10),
               ),
-              height: 320,
-              width: 320,
+              height: 365,
+              width: 340,
               child: Column(
                 children: [
                   LoginTextFormField(
@@ -57,11 +59,15 @@ class LoginForm extends StatelessWidget {
                     icon: Icons.person,
                   ),
                   LoginTextFormField(
-                      label: translator.remindPasswordLabel, icon: Icons.lock),
+                      label: translator.passwordLabel, icon: Icons.lock),
                   LoginCheckbox(
                     label: translator.remindPasswordLabel,
                   ),
                   LoginButton(label: translator.loginButton),
+                  RemindPasswordLabel(
+                    label: translator.forgottenPassword,
+                  ),
+                  RegisterLabel(label: translator.registerLabel),
                 ],
               ),
             ),

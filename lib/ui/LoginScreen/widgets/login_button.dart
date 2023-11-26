@@ -23,8 +23,10 @@ class LoginButton extends StatelessWidget {
           minimumSize: const Size(220, 50),
         ),
         onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const HomeScreen()));
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const HomeScreen()),
+          );
         },
         child: Text(
           label,

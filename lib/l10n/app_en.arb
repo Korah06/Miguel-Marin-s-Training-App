@@ -1,6 +1,6 @@
 {
   "loginButton": "Sign In",
-  "registerButton": "Sign Up",
+  "registerLabel": "Don't have account? Sign up now!",
   "userLabel": "User",
   "passwordLabel": "Password",
   "remindPasswordLabel": "Remember password?",

@@ -1,6 +1,6 @@
 {
   "loginButton": "Iniciar Sesión",
-  "registerButton": "Registrarse",
+  "registerLabel": "¿No tienes cuenta? Regístrate!",
   "userLabel": "Usuario",
   "passwordLabel": "Contraseña",
   "remindPasswordLabel": "¿Recordar Contraseña?",

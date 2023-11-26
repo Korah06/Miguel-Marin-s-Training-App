@@ -1,6 +1,6 @@
 {
   "loginButton": "Iniciar Sessió",
-  "registerButton": "Registrar-se",
+  "registerLabel": "No tens conte? Pues registrat!",
   "userLabel": "Usuari",
   "passwordLabel": "Contrasenya",
   "remindPasswordLabel": "Vols recordar la teva contrasenya?",
