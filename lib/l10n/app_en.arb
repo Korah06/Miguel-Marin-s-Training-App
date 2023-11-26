@@ -3,5 +3,6 @@
   "registerButton": "Sign Up",
   "userLabel": "User",
   "passwordLabel": "Password",
-  "remindPasswordLabel": "Forgot Password?"
+  "remindPasswordLabel": "Remember password?",
+  "forgottenPassword": "Forgot Password?"
 }

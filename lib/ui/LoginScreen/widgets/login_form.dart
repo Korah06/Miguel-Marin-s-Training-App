@@ -57,7 +57,7 @@ class LoginForm extends StatelessWidget {
                     icon: Icons.person,
                   ),
                   LoginTextFormField(
-                      label: translator.passwordLabel, icon: Icons.lock),
+                      label: translator.remindPasswordLabel, icon: Icons.lock),
                   LoginCheckbox(
                     label: translator.remindPasswordLabel,
                   ),

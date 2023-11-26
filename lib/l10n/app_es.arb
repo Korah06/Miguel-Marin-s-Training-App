@@ -3,5 +3,6 @@
   "registerButton": "Registrarse",
   "userLabel": "Usuario",
   "passwordLabel": "Contraseña",
-  "remindPasswordLabel": "Has olvidado tu Contraseña?"
+  "remindPasswordLabel": "¿Recordar Contraseña?",
+  "forgottenPassword": "Has olvidado tu Contraseña?"
 }

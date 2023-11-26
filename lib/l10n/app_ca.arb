@@ -1,0 +1,8 @@
+{
+  "loginButton": "Iniciar Sessió",
+  "registerButton": "Registrar-se",
+  "userLabel": "Usuari",
+  "passwordLabel": "Contrasenya",
+  "remindPasswordLabel": "Vols recordar la teva contrasenya?",
+  "forgottenPassword": "Has oblidat la teva Contrasenya?"
+}
