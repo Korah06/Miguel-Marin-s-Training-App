@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "270334386672",
+    "project_id": "miguel-marin-trainer",
+    "storage_bucket": "miguel-marin-trainer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:270334386672:android:227e6360071b2b8bc63d35",
+        "android_client_info": {
+          "package_name": "com.example.miguel_marin_training"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAby3RTWNYHjI7VQik0lDRUtQ8BF06JVl8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

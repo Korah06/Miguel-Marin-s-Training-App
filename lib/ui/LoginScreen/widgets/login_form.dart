@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:miguel_marin_training/domain/bloc/Auth/auth_bloc.dart';
 import 'package:miguel_marin_training/ui/LoginScreen/widgets/login_text_form_field.dart';
+import 'package:miguel_marin_training/ui/LoginScreen/widgets/password_textformfield.dart';
 import 'package:miguel_marin_training/ui/theme/colors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -16,6 +19,10 @@ class LoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final translator = AppLocalizations.of(context);
+
+    final passwordController = TextEditingController();
+    final userController = TextEditingController();
+    final authBloc = BlocProvider.of<AuthBloc>(context);
 
     return Container(
       decoration: const BoxDecoration(
@@ -50,18 +57,19 @@ class LoginForm extends StatelessWidget {
                 color: ColorsScheme().darkRed,
                 borderRadius: BorderRadius.circular(10),
               ),
-              height: 365,
+              height: 340,
               width: 340,
               child: Column(
                 children: [
                   LoginTextFormField(
                     label: translator!.userLabel,
                     icon: Icons.person,
+                    controller: userController,
                   ),
-                  LoginTextFormField(
-                      label: translator.passwordLabel, icon: Icons.lock),
-                  LoginCheckbox(
-                    label: translator.remindPasswordLabel,
+                  PasswordTextFormField(
+                    controller: passwordController,
+                    label: translator.passwordLabel,
+                    icon: Icons.lock,
                   ),
                   LoginButton(label: translator.loginButton),
                   RemindPasswordLabel(

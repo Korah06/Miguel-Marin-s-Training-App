@@ -48,7 +48,7 @@ class RegisterForm extends StatelessWidget {
               child: Column(
                 children: [
                   ElevatedButton(
-                      onPressed: () {}, child: const Text("Register"))
+                      onPressed: () async {}, child: const Text("Register"))
                 ],
               ),
             ),

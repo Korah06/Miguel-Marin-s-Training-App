@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:miguel_marin_training/ui/HomeScreen/home_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:miguel_marin_training/domain/bloc/Auth/auth_bloc.dart';
 import 'package:miguel_marin_training/ui/theme/colors.dart';
 
 class LoginButton extends StatelessWidget {
@@ -11,6 +12,8 @@ class LoginButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authBloc = BlocProvider.of<AuthBloc>(context);
+
     return Padding(
       padding: const EdgeInsets.only(top: 30),
       child: ElevatedButton(
@@ -23,10 +26,11 @@ class LoginButton extends StatelessWidget {
           minimumSize: const Size(220, 50),
         ),
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const HomeScreen()),
-          );
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => const HomeScreen()),
+          // );
+          authBloc.add(AuthEventLogin());
         },
         child: Text(
           label,

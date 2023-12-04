@@ -18,7 +18,7 @@ class RemindPasswordLabel extends StatelessWidget {
         );
       },
       child: Padding(
-        padding: const EdgeInsets.only(top: 20, left: 10),
+        padding: const EdgeInsets.only(top: 30, left: 10),
         child: Align(
           alignment: Alignment.centerLeft,
           child: Text(

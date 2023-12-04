@@ -3,11 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:miguel_marin_training/domain/bloc/Auth/auth_bloc.dart';
 import 'package:miguel_marin_training/ui/theme/colors.dart';
 
-class LoginTextFormField extends StatelessWidget {
+class PasswordTextFormField extends StatefulWidget {
   final String label;
-  final IconData? icon;
   final TextEditingController controller;
-  const LoginTextFormField({
+  final IconData? icon;
+  const PasswordTextFormField({
     super.key,
     required this.label,
     required this.icon,
@@ -15,12 +15,30 @@ class LoginTextFormField extends StatelessWidget {
   });
 
   @override
+  State<PasswordTextFormField> createState() => _PasswordTextFormFieldState();
+}
+
+class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
+  final textFieldFocusNode = FocusNode();
+  bool _obscured = false;
+
+  void _toggleObscured() {
+    setState(() {
+      _obscured = !_obscured;
+      if (textFieldFocusNode.hasPrimaryFocus) return;
+      textFieldFocusNode.canRequestFocus = false;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     final authBloc = BlocProvider.of<AuthBloc>(context);
-
     return Padding(
       padding: const EdgeInsets.all(14),
       child: TextFormField(
+        keyboardType: TextInputType.visiblePassword,
+        obscureText: _obscured,
+        focusNode: textFieldFocusNode,
         maxLines: 1,
         style: TextStyle(
           color: ColorsScheme().pink,
@@ -39,20 +57,26 @@ class LoginTextFormField extends StatelessWidget {
               color: ColorsScheme().pink,
             ),
           ),
-          labelText: label,
+          labelText: widget.label,
           labelStyle: TextStyle(
             color: ColorsScheme().pink,
           ),
           floatingLabelBehavior: FloatingLabelBehavior.auto,
-          prefixIcon: Icon(
-            size: 15,
-            icon,
-            color: ColorsScheme().pink,
+          suffixIcon: Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 4, 0),
+            child: GestureDetector(
+              onTap: _toggleObscured,
+              child: Icon(
+                color: ColorsScheme().pink,
+                _obscured
+                    ? Icons.visibility_off_rounded
+                    : Icons.visibility_rounded,
+                size: 24,
+              ),
+            ),
           ),
         ),
-        onChanged: (value) {
-          authBloc.add(AuthEventTakeEmail(value));
-        },
+        onChanged: (value) => authBloc.add(AuthEventTakePassword(value)),
       ),
     );
   }
