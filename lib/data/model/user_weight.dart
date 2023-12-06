@@ -9,5 +9,5 @@ class UserWeight extends Equatable {
       {required this.id, required this.weight, required this.date});
 
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [id, weight, date];
 }

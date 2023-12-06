@@ -28,3 +28,12 @@ class AuthEventTakeEmail extends AuthEvent {
   @override
   List<Object> get props => [email];
 }
+
+class AuthEventTakeDate extends AuthEvent {
+  final DateTime date;
+
+  const AuthEventTakeDate(this.date);
+
+  @override
+  List<Object> get props => [date];
+}

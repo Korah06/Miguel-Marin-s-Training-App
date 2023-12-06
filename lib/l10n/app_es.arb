@@ -1,8 +1,14 @@
 {
   "loginButton": "Iniciar Sesión",
   "registerLabel": "¿No tienes cuenta? Regístrate!",
-  "userLabel": "Usuario",
+  "userLabel": "Correo Electrónico",
   "passwordLabel": "Contraseña",
   "remindPasswordLabel": "¿Recordar Contraseña?",
-  "forgottenPassword": "Has olvidado tu Contraseña?"
+  "forgottenPassword": "Has olvidado tu Contraseña?",
+  "noEmail": "No has introducido un correo electrónico",
+  "noPassword": "No has introducido una contraseña",
+  "incorrectEmailFormat": "El correo electrónico no tiene un formato correcto",
+  "incorrectPasswordFormat": "La contraseña no tiene un formato correcto",
+  "wrongEmailOrPassword": "El correo electrónico o la contraseña son incorrectos",
+  "ok": "Aceptar"
 }

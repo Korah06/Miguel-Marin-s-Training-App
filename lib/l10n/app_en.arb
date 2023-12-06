@@ -1,8 +1,14 @@
 {
   "loginButton": "Sign In",
   "registerLabel": "Don't have account? Sign up now!",
-  "userLabel": "User",
+  "userLabel": "Email",
   "passwordLabel": "Password",
   "remindPasswordLabel": "Remember password?",
-  "forgottenPassword": "Forgot Password?"
+  "forgottenPassword": "Forgot Password?",
+  "noEmail": "You must enter an email address",
+  "noPassword": "You must enter a password",
+  "incorrectEmailFormat": "Incorrect email format",
+  "incorrectPasswordFormat": "Incorrect password format",
+  "wrongEmailOrPassword": "Wrong email or password",
+  "ok": "Ok"
 }

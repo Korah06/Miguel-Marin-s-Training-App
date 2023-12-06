@@ -8,8 +8,6 @@ class RegisterForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final translator = AppLocalizations.of(context);
-
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(

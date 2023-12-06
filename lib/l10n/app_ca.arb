@@ -1,8 +1,14 @@
 {
   "loginButton": "Iniciar Sessió",
   "registerLabel": "No tens conte? Pues registrat!",
-  "userLabel": "Usuari",
+  "userLabel": "Correu Electrònic",
   "passwordLabel": "Contrasenya",
   "remindPasswordLabel": "Vols recordar la teva contrasenya?",
-  "forgottenPassword": "Has oblidat la teva Contrasenya?"
+  "forgottenPassword": "Has oblidat la teva Contrasenya?",
+  "noEmail": "No has introduït cap correu electrònic",
+  "noPassword": "No has introduït cap contrasenya",
+  "incorrectEmailFormat": "El correu electrònic no té un format correcte",
+  "incorrectPasswordFormat": "La contrasenya no té un format correcte",
+  "wrongEmailOrPassword": "El correu electrònic o la contrasenya són incorrectes",
+  "ok": "Acceptar"
 }

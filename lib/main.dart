@@ -4,6 +4,7 @@ import 'package:miguel_marin_training/domain/func/init_functionality.dart';
 // import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:miguel_marin_training/ui/Routes/routes.dart';
+import 'package:miguel_marin_training/ui/theme/colors.dart';
 
 void main() {
   InitConfigurations().setInitConfig();
@@ -24,7 +25,12 @@ class MainApp extends StatelessWidget {
         routes: Routes.routes,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primaryColor: Colors.blue,
+          primaryColor: ColorsScheme().primaryRed,
+          textSelectionTheme: TextSelectionThemeData(
+            cursorColor: ColorsScheme().pink,
+            selectionColor: ColorsScheme().pink,
+            selectionHandleColor: ColorsScheme().pink,
+          ),
           useMaterial3: true,
         ));
   }
