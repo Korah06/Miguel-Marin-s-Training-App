@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:miguel_marin_training/domain/bloc/Auth/auth_bloc.dart';
+import 'package:miguel_marin_training/ui/LoginScreen/services/validator_functions.dart';
 import 'package:miguel_marin_training/ui/theme/colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoginTextFormField extends StatelessWidget {
   final String label;
@@ -16,11 +18,13 @@ class LoginTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final translator = AppLocalizations.of(context)!;
     final authBloc = BlocProvider.of<AuthBloc>(context);
 
     return Padding(
       padding: const EdgeInsets.all(14),
       child: TextFormField(
+        controller: controller,
         maxLines: 1,
         style: TextStyle(
           color: ColorsScheme().pink,
@@ -50,8 +54,17 @@ class LoginTextFormField extends StatelessWidget {
             color: ColorsScheme().pink,
           ),
         ),
-        onChanged: (value) {
-          authBloc.add(AuthEventTakeEmail(value));
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            authBloc.add(const AuthEventChangeValidation(false));
+            return translator.noEmail;
+          }
+          if (!isValidEmail(value)) {
+            authBloc.add(const AuthEventChangeValidation(false));
+            return translator.incorrectEmailFormat;
+          }
+          authBloc.add(const AuthEventChangeValidation(true));
+          return null;
         },
       ),
     );

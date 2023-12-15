@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:miguel_marin_training/domain/bloc/Auth/auth_bloc.dart';
+import 'package:miguel_marin_training/ui/LoginScreen/services/validator_functions.dart';
 import 'package:miguel_marin_training/ui/theme/colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PasswordTextFormField extends StatefulWidget {
   final String label;
@@ -32,10 +34,13 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
 
   @override
   Widget build(BuildContext context) {
+    final translator = AppLocalizations.of(context)!;
     final authBloc = BlocProvider.of<AuthBloc>(context);
+
     return Padding(
       padding: const EdgeInsets.all(14),
       child: TextFormField(
+        controller: widget.controller,
         keyboardType: TextInputType.visiblePassword,
         obscureText: _obscured,
         focusNode: textFieldFocusNode,
@@ -76,7 +81,18 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
             ),
           ),
         ),
-        onChanged: (value) => authBloc.add(AuthEventTakePassword(value)),
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            authBloc.add(const AuthEventChangeValidation(false));
+            return translator.noPassword;
+          }
+          if (!isValidPassword(value)) {
+            authBloc.add(const AuthEventChangeValidation(false));
+            return translator.incorrectPasswordFormat;
+          }
+          authBloc.add(const AuthEventChangeValidation(true));
+          return null;
+        },
       ),
     );
   }

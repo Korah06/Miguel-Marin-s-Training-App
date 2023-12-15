@@ -7,8 +7,11 @@
   "forgottenPassword": "Has olvidado tu Contraseña?",
   "noEmail": "No has introducido un correo electrónico",
   "noPassword": "No has introducido una contraseña",
-  "incorrectEmailFormat": "El correo electrónico no tiene un formato correcto",
+  "incorrectEmailFormat": "El correo no tiene un formato correcto",
   "incorrectPasswordFormat": "La contraseña no tiene un formato correcto",
   "wrongEmailOrPassword": "El correo electrónico o la contraseña son incorrectos",
+  "invalidUserPassword": "La contraseña no corresponde con el usuario",
+  "userNotFound": "El usuario no existe",
+  "invalidCredentialError": "Las credenciales no son válidas",
   "ok": "Aceptar"
 }

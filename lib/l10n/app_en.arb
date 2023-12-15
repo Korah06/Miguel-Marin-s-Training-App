@@ -10,5 +10,8 @@
   "incorrectEmailFormat": "Incorrect email format",
   "incorrectPasswordFormat": "Incorrect password format",
   "wrongEmailOrPassword": "Wrong email or password",
+  "invalidUserPassword": "Invalid password for this user",
+  "userNotFound": "User not found",
+  "invalidCredentialError": "Invalid credentials",
   "ok": "Ok"
 }

@@ -7,7 +7,6 @@ import 'package:miguel_marin_training/ui/PopUps/login_errors_popup.dart';
 import 'package:miguel_marin_training/ui/theme/colors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import 'login_button.dart';
 import 'register_label.dart';
 import 'remind_password_label.dart';
 
@@ -19,46 +18,34 @@ class LoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final translator = AppLocalizations.of(context)!;
+    final authBloc = BlocProvider.of<AuthBloc>(context);
 
     final passwordController = TextEditingController();
     final userController = TextEditingController();
 
+    final formKey = GlobalKey<FormState>();
+
     return BlocConsumer<AuthBloc, AuthState>(
       listener: (context, authState) {
-        if (authState.status == AuthStatus.noEmail) {
-          showGeneralDialog(
+        if (authState.status == AuthStatus.error) {
+          showDialog(
             context: context,
-            pageBuilder: (context, _, __) {
-              return LoginErrorPopUp(label: translator.noEmail);
-            },
-          );
-        }
-        if (authState.status == AuthStatus.noPassword) {
-          showGeneralDialog(
-            context: context,
-            pageBuilder: (context, _, __) {
-              return LoginErrorPopUp(label: translator.noPassword);
-            },
-          );
-        }
-        if (authState.status == AuthStatus.incorrectEmailFormat) {
-          showGeneralDialog(
-            context: context,
-            pageBuilder: (context, _, __) {
-              return LoginErrorPopUp(label: translator.incorrectEmailFormat);
-            },
-          );
-        }
-        if (authState.status == AuthStatus.incorrectPasswordFormat) {
-          showGeneralDialog(
-            context: context,
-            pageBuilder: (context, _, __) {
-              return LoginErrorPopUp(label: translator.incorrectPasswordFormat);
-            },
+            builder: (context) => LoginErrorPopUp(
+              error: authState.error,
+            ),
           );
         }
       },
       builder: (context, authState) {
+        final double formHeight;
+        final formWidth = MediaQuery.of(context).size.width * 0.8;
+
+        if (authState.isValidated) {
+          formHeight = MediaQuery.of(context).size.height * 0.4;
+        } else {
+          formHeight = MediaQuery.of(context).size.height * 0.425;
+        }
+
         return Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -92,26 +79,56 @@ class LoginForm extends StatelessWidget {
                     color: ColorsScheme().darkRed,
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  height: 340,
-                  width: 340,
-                  child: Column(
-                    children: [
-                      LoginTextFormField(
-                        label: translator.userLabel,
-                        icon: Icons.person,
-                        controller: userController,
-                      ),
-                      PasswordTextFormField(
-                        controller: passwordController,
-                        label: translator.passwordLabel,
-                        icon: Icons.lock,
-                      ),
-                      LoginButton(label: translator.loginButton),
-                      RemindPasswordLabel(
-                        label: translator.forgottenPassword,
-                      ),
-                      RegisterLabel(label: translator.registerLabel),
-                    ],
+                  height: formHeight,
+                  width: formWidth,
+                  child: Form(
+                    key: formKey,
+                    child: Column(
+                      children: [
+                        LoginTextFormField(
+                          label: translator.userLabel,
+                          icon: Icons.person,
+                          controller: userController,
+                        ),
+                        PasswordTextFormField(
+                          controller: passwordController,
+                          label: translator.passwordLabel,
+                          icon: Icons.lock,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 30),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: ColorsScheme().pink,
+                              elevation: 10,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              minimumSize: const Size(220, 50),
+                            ),
+                            onPressed: () {
+                              // Navigator.push(
+                              //   context,
+                              //   MaterialPageRoute(builder: (context) => const HomeScreen()),
+                              // );
+                              if (formKey.currentState!.validate()) {
+                                authBloc.add(AuthEventLogin(
+                                    email: userController.text,
+                                    password: passwordController.text));
+                              }
+                            },
+                            child: Text(
+                              translator.loginButton,
+                              style: TextStyle(color: ColorsScheme().gray),
+                            ),
+                          ),
+                        ),
+                        RemindPasswordLabel(
+                          label: translator.forgottenPassword,
+                        ),
+                        RegisterLabel(label: translator.registerLabel),
+                      ],
+                    ),
                   ),
                 ),
               )

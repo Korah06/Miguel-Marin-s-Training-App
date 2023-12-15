@@ -10,5 +10,8 @@
   "incorrectEmailFormat": "El correu electrònic no té un format correcte",
   "incorrectPasswordFormat": "La contrasenya no té un format correcte",
   "wrongEmailOrPassword": "El correu electrònic o la contrasenya són incorrectes",
+  "invalidUserPassword": "La contrasenya no correspon a l'usuari",
+  "userNotFound": "L'usuari no existeix",
+  "invalidCredentialError": "Credencials invàlides",
   "ok": "Acceptar"
 }
