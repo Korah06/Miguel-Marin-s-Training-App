@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:miguel_marin_training/ui/RegisterScreen/register_screen.dart';
+import 'package:miguel_marin_training/ui/Routes/routes.dart';
 import 'package:miguel_marin_training/ui/theme/colors.dart';
 
 class RegisterLabel extends StatelessWidget {
@@ -13,10 +14,7 @@ class RegisterLabel extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const RegisterScreen()),
-        );
+        Navigator.pushNamed(context, Routes.register);
       },
       child: Padding(
         padding: const EdgeInsets.only(top: 10, left: 10),

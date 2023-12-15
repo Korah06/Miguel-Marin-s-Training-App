@@ -16,14 +16,14 @@ enum AuthStatus {
 
 class AuthState extends Equatable {
   final String email;
-  final String credential;
+  final String? credential;
   final UserTr? user;
   final bool isValidated;
   final String error;
   final AuthStatus status;
 
   const AuthState(
-      {this.credential = '',
+      {this.credential,
       this.user,
       this.isValidated = true,
       this.status = AuthStatus.loaded,

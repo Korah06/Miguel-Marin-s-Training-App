@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:miguel_marin_training/domain/func/init_functionality.dart';
 
@@ -6,8 +7,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:miguel_marin_training/ui/Routes/routes.dart';
 import 'package:miguel_marin_training/ui/theme/colors.dart';
 
-void main() {
-  InitConfigurations().setInitConfig();
+Future<void> main() async {
+  await InitConfigurations().setInitConfig();
   runApp(const MainApp());
 }
 
@@ -21,7 +22,9 @@ class MainApp extends StatelessWidget {
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
         // home: const LoginScreen(),
-        initialRoute: Routes.login,
+        initialRoute: FirebaseAuth.instance.currentUser == null
+            ? Routes.login
+            : Routes.home,
         routes: Routes.routes,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(

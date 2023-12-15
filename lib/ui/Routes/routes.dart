@@ -1,4 +1,5 @@
 import 'package:miguel_marin_training/domain/bloc/Auth/auth_bloc.dart';
+import 'package:miguel_marin_training/ui/HomeScreen/home_screen.dart';
 import 'package:miguel_marin_training/ui/LoginScreen/login_screen.dart';
 import 'package:miguel_marin_training/ui/RegisterScreen/register_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,5 +16,6 @@ class Routes {
               child: const LoginScreen(),
             ),
         register: (context) => const RegisterScreen(),
+        home: (context) => const HomeScreen(),
       };
 }

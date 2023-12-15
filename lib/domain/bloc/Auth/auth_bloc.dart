@@ -1,7 +1,5 @@
-import 'dart:async';
-
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:miguel_marin_training/data/model/user.dart';
+import 'package:miguel_marin_training/data/model/usertr.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
@@ -15,7 +13,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthEventTakeDate>(_onAuthEventTakeDate);
     on<AuthEventChangeValidation>(_onAuthEventChangeValidation);
   }
-  _onAuthEventLogin(AuthEventLogin event, Emitter<AuthState> emit) async {
+  Future<void> _onAuthEventLogin(
+      AuthEventLogin event, Emitter<AuthState> emit) async {
     final String email = event.email;
     final String password = event.password;
     try {

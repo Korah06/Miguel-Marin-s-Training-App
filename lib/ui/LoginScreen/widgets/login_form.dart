@@ -1,9 +1,13 @@
+import 'dart:async';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:miguel_marin_training/domain/bloc/Auth/auth_bloc.dart';
 import 'package:miguel_marin_training/ui/LoginScreen/widgets/login_text_form_field.dart';
 import 'package:miguel_marin_training/ui/LoginScreen/widgets/password_textformfield.dart';
 import 'package:miguel_marin_training/ui/PopUps/login_errors_popup.dart';
+import 'package:miguel_marin_training/ui/Routes/routes.dart';
 import 'package:miguel_marin_training/ui/theme/colors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -107,14 +111,22 @@ class LoginForm extends StatelessWidget {
                               minimumSize: const Size(220, 50),
                             ),
                             onPressed: () {
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(builder: (context) => const HomeScreen()),
-                              // );
                               if (formKey.currentState!.validate()) {
-                                authBloc.add(AuthEventLogin(
+                                StreamSubscription? subscription;
+                                subscription = authBloc.stream.listen((state) {
+                                  if (state.credential != null) {
+                                    print(state.credential);
+                                    Navigator.pushNamed(context, Routes.home);
+                                    subscription?.cancel();
+                                  }
+                                });
+
+                                authBloc.add(
+                                  AuthEventLogin(
                                     email: userController.text,
-                                    password: passwordController.text));
+                                    password: passwordController.text,
+                                  ),
+                                );
                               }
                             },
                             child: Text(
