@@ -115,8 +115,19 @@ class LoginForm extends StatelessWidget {
                                 StreamSubscription? subscription;
                                 subscription = authBloc.stream.listen((state) {
                                   if (state.credential != null) {
-                                    print(state.credential);
-                                    Navigator.pushNamed(context, Routes.home);
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          translator.loginSuccess,
+                                          style: TextStyle(
+                                              color: ColorsScheme().white),
+                                        ),
+                                        backgroundColor: ColorsScheme().darkRed,
+                                      ),
+                                    );
+                                    // Navigator.pushNamed(context, Routes.home);
+                                    Navigator.pushNamedAndRemoveUntil(
+                                        context, Routes.home, (route) => false);
                                     subscription?.cancel();
                                   }
                                 });

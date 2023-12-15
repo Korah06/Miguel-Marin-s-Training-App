@@ -13,5 +13,6 @@
   "invalidUserPassword": "Invalid password for this user",
   "userNotFound": "User not found",
   "invalidCredentialError": "Invalid credentials",
+  "loginSuccess": "Login success",
   "ok": "Ok"
 }

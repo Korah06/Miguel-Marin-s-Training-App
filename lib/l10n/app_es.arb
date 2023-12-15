@@ -13,5 +13,6 @@
   "invalidUserPassword": "La contraseña no corresponde con el usuario",
   "userNotFound": "El usuario no existe",
   "invalidCredentialError": "Las credenciales no son válidas",
+  "loginSuccess": "Has iniciado sesión correctamente",
   "ok": "Aceptar"
 }

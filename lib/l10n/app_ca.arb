@@ -13,5 +13,6 @@
   "invalidUserPassword": "La contrasenya no correspon a l'usuari",
   "userNotFound": "L'usuari no existeix",
   "invalidCredentialError": "Credencials invàlides",
+  "loginSuccess": "Sessió iniciada correctament",
   "ok": "Acceptar"
 }
